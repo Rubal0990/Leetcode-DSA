@@ -11,7 +11,7 @@ Roman numerals are represented by seven different symbols: `I`, `V`, `X`, `L`, `
 | D	| 500 |
 | M	| 1000 |
 
-For example, `2` is written as `II` in Roman numeral, just two one's added together. `12` is written as `XII`, which is simply `X + II`. The number 27 is written as `XXVII`, which is `XX + V + II`.
+For example, `2` is written as `II` in Roman numeral, just two one's added together. `12` is written as `XII`, which is simply `X + II`. The number `27` is written as `XXVII`, which is `XX + V + II`.
 
 Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not `IIII`. Instead, the number four is written as `IV`. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as `IX`. There are six instances where subtraction is used:
 
@@ -47,4 +47,4 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 ## Contraints
 * 1 <= s.length <= 15
 * s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
-* It is guaranteed that s is a valid roman numeral in the range [1, 3999].
+* It is guaranteed that `s` is a valid roman numeral in the range `[1, 3999]`.
