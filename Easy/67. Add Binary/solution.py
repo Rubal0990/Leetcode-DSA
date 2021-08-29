@@ -12,7 +12,7 @@ class Solution:
             if countOfb >= 0:
                 totalSum += int(b[countOfb])
                 countOfb -= 1
-            result += str(totalSum%2)
+            result = str(totalSum%2) + result
             carry = totalSum // 2
             
         if carry > 0:
