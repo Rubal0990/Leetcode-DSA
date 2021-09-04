@@ -1,7 +1,7 @@
 # Maximum Depth of Binary Tree
 Given the `root` of a binary tree, <i>return its maximum depth</i>.
 
-A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+A binary tree's <b>maximum depth</b> is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
 ## Examples
 ![Image 1](https://user-images.githubusercontent.com/66882470/126449495-fa17f031-7fd2-49f3-a976-5c8c7bceb0b4.jpg)
