@@ -1,5 +1,5 @@
 # Binary Tree Preorder Traversal
-Given the root of a binary tree, return the preorder traversal of its nodes' values.
+Given the root of a binary tree, return <i>the preorder traversal of its nodes' values</i>.
 
 ## Examples
 ![Image 1](https://user-images.githubusercontent.com/66882470/128389510-6b4b9c70-8b8a-4c95-9838-af004cb92bc6.jpg)
