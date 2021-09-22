@@ -1,6 +1,7 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         res = []
+        
         for i in range(numRows):
             row = []
             for j in range(i+1):
