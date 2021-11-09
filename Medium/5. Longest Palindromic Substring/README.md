@@ -1,5 +1,5 @@
 # Longest Palindromic Substring
-Given a string `s`, return <i>the longest palindromic substring in </i>`s`.
+Given a string `s`, return <i>the longest palindromic substring</i> in `s`.
 
 ## Examples
 ```
@@ -21,5 +21,5 @@ Output: "a"
 ```
 
 ## Constraints
-* `1 <= s.length <= 1000`
+* 1 <= s.length <= 1000
 * `s` consist of only digits and English letters.
