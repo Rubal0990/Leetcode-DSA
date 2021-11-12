@@ -1,5 +1,5 @@
 # Pow(x, n)
-Implement `pow(x, n)`, which calculates `x` raised to the power `n` (i.e., x<sup>n</sup>).
+Implement [pow(x, n)](https://www.cplusplus.com/reference/valarray/pow/), which calculates `x` raised to the power `n` (i.e., x<sup>n</sup>).
 
 ## Examples
 ```
