@@ -3,8 +3,8 @@
 class Solution:
     def isPossible(self, N, arr):
         v=''
-        for i in range(len(arr)):
-            v+=str(arr[i])
+        for i in range(N):
+            v += str(arr[i])
            
         if int(v)% 3 == 0:
             return 1
