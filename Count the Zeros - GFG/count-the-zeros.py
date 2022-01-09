@@ -1,10 +1,27 @@
 #User function Template for python3
 
 class Solution:
-    
-    
-    def countZeroes(self, arr, n):
-        return arr.count(0)
+    def first_zero(self ,arr, high , low):
+        while(high>=low):
+            mid = (high+low)//2
+            
+            if (mid==0 or arr[mid-1]==1) and arr[mid] == 0:
+                return mid
+            elif arr[mid] == 1:
+                low = mid+1
+            else:
+                high = mid-1
+                
+        return -1
+            
+        
+    def countZeroes(self,arr,n):
+        index_z = self.first_zero(arr,n-1,0)
+        
+        if index_z == -1:
+            return 0
+            
+        return(n - index_z)
 
 #{ 
 #  Driver Code Starts
