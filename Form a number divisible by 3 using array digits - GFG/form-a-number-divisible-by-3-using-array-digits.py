@@ -2,11 +2,13 @@
 
 class Solution:
     def isPossible(self, N, arr):
-        v=''
-        for i in range(N):
-            v += str(arr[i])
-           
-        if int(v)% 3 == 0:
+        remainder = 0
+        
+        for i in range (0, N):
+            remainder = (remainder + arr[i]) % 3
+
+        # Return true if remainder is 0.
+        if(remainder == 0):
             return 1
         else:
             return 0
