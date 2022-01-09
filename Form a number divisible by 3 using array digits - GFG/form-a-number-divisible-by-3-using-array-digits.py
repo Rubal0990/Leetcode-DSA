@@ -7,7 +7,6 @@ class Solution:
         for i in range (0, N):
             remainder = (remainder + arr[i]) % 3
 
-        # Return true if remainder is 0.
         if(remainder == 0):
             return 1
         else:
