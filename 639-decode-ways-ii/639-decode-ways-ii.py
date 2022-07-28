@@ -1,33 +1,51 @@
-class Solution {
-    int M = 1000000007;
-    public int numDecodings(String s) {
-        Long[] memo = new Long[s.length()];
-        return (int) ways(s, s.length() - 1, memo);
-    }
-    public long ways(String s, int i, Long[] memo) {
-        if (i < 0)
-            return 1;
-        if (memo[i] != null)
-            return memo[i];
-        if (s.charAt(i) == '*') {
-            long res = 9 * ways(s, i - 1, memo) % M;
-            if (i > 0 && s.charAt(i - 1) == '1')
-                res = (res + 9 * ways(s, i - 2, memo)) % M;
-            else if (i > 0 && s.charAt(i - 1) == '2')
-                res = (res + 6 * ways(s, i - 2, memo)) % M;
-            else if (i > 0 && s.charAt(i - 1) == '*')
-                res = (res + 15 * ways(s, i - 2, memo)) % M;
-            memo[i] = res;
-            return memo[i];
-        }
-        long res = s.charAt(i) != '0' ? ways(s, i - 1, memo) : 0;
-        if (i > 0 && s.charAt(i - 1) == '1')
-            res = (res + ways(s, i - 2, memo)) % M;
-        else if (i > 0 && s.charAt(i - 1) == '2' && s.charAt(i) <= '6')
-            res = (res + ways(s, i - 2, memo)) % M;
-        else if (i > 0 && s.charAt(i - 1) == '*')
-            res = (res + (s.charAt(i) <= '6' ? 2 : 1) * ways(s, i - 2, memo)) % M;
-        memo[i] = res;
-        return memo[i];
-    }
-}
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        non_zero = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        first_incl, second_incl = 1, 0
+        first_excl, second_excl = 0, 0
+        
+        if s[0] in non_zero:
+            second_incl = 1
+        
+        if s[0] == '*':
+            second_incl = 9
+            
+        for i in range(1, len(s)):
+            new_incl, new_excl = 0, 0
+            
+            if s[i] == '*':
+                new_incl = 9 * (second_incl + second_excl)
+                if s[i-1] == '1':
+                    # number is of type (1, *)
+                    new_excl = 9 * (first_incl + first_excl)
+                    
+                elif s[i-1] == '2':
+                    # number is of type (2, *)
+                    new_excl = 6 * (first_incl + first_excl)
+                    
+                elif s[i-1] == '*':
+                    # number is of type (*, *)
+                    new_excl = 15 * (first_incl + first_excl)
+            else:
+                if s[i] in non_zero:
+                    new_incl = second_incl + second_excl
+                        
+                if s[i-1] == '*':
+                    # number is of type (*,digit)
+                    if int(s[i]) <= 6:
+                        new_excl = 2 * (first_excl + first_incl)
+                    else:
+                        new_excl = first_incl + first_excl
+                        
+                else:
+                    # number is of type (digit,digit)
+                    val = int(s[i-1:i+1])
+                    if 10 <= val <= 26:
+                        new_excl = first_incl + first_excl
+                    else:
+                        new_excl = 0
+                        
+            first_incl, first_excl = second_incl, second_excl
+            second_incl, second_excl = new_incl, new_excl
+            
+        return (second_incl + second_excl) % (10**9 + 7)
