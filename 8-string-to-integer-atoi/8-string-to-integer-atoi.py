@@ -1,26 +1,24 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
-        INT_MAX = pow(2,31) - 1 
-        INT_MIN = -pow(2,31)
-        
+        pattern = re.compile(r'[-+]?[0-9]+')
         s = s.strip()
-        num = 0
-        sign = 0    
-
-        for i in range(len(s)):  
-            if s[i] in ["+", "-"] and sign == 0 and i == 0:
-                if s[i] == "-": 
-                    sign += 1 
-                else: 
-                    continue
+        word_list = pattern.findall(s)
         
-            elif s[i].isnumeric():
-                if ((num > INT_MAX // 10) or (num == INT_MAX // 10 and int(s[i]) > INT_MAX % 10)):
-                    return INT_MIN if sign == 1 else INT_MAX
+        if word_list:
+            value = word_list[0]
+            if s.startswith(value):
+                value = int(value)
+                if value > 2**(31)-1:
+                    return 2**(31)-1
                 
-                num = num * 10 + int(s[i])
+                elif value < -2**(31):
+                    return -2**(31)
                 
+                else:
+                    return value
+            
             else:
-                break
-                
-        return -num if sign == 1 else num
+                return 0
+        
+        else:
+            return 0
