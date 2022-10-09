@@ -1,16 +1,10 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        res = []
+        lst = [1] * numRows
         
         for i in range(numRows):
-            row = []
-            for j in range(i+1):
-                if j == 0 or j == i:
-                    row.append(1)
-                else:
-                    row.append(pre[j-1] + pre[j])
-            
-            pre = row
-            res.append(row)
+            lst[i] = [1] * (i+1)
+            for j in range(1, i):
+                lst[i][j] = lst[i-1][j-1] + lst[i-1][j]
         
-        return res
+        return lst
