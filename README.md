@@ -1,4 +1,4 @@
-# LeetCode - DSA
+# Leetcode - DSA
 
 Data Structure and Algorithm Questions in Python
 
