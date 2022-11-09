@@ -6,10 +6,10 @@ class StockSpanner:
     def next(self, price: int) -> int:
         curDay = self.stack[-1][1] + 1
         
-        while price>=self.stack[-1][0]:
+        while price >= self.stack[-1][0]:
             self.stack.pop(-1)
 
-        span = curDay-self.stack[-1][1]
+        span = curDay - self.stack[-1][1]
         self.stack.append([price, curDay])
         return span
 
