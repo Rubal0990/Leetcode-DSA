@@ -7,7 +7,8 @@ class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         solution = ListNode(0)
         head = solution
-        while l1!=None and l2!=None:
+        
+        while l1 != None and l2 != None:
             if l1.val < l2.val:
                 solution.next = l1
                 l1 = l1.next
@@ -20,4 +21,5 @@ class Solution:
             solution.next = l2
         else:
             solution.next = l1
+        
         return head.next
