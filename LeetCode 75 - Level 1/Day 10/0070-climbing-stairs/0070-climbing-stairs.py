@@ -4,4 +4,5 @@ class Solution:
         
         for i in range(4, n+1):
             path[i] = path[i-1] + path[i-2]
+        
         return path[n]
