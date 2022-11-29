@@ -4,4 +4,4 @@ Data Structure and Algorithm Questions in Python
 
 | Easy   |  Medium  | Hard |
 |--------|----------|------|
-|   94   |    60    |  19  |
+|   94   |    61    |  19  |
