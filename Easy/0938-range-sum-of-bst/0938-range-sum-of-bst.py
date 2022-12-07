@@ -14,7 +14,9 @@ class Solution:
         cur = root
         if not cur:
             return None
+        
         self.inorder(cur.left, res, L, R)
         if L <= cur.val <= R:
             res.append(cur.val)
+        
         self.inorder(cur.right, res, L, R)
