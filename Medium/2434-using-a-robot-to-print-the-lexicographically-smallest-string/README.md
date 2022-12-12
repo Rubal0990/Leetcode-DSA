@@ -1,32 +1,49 @@
-<h2><a href="https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/">2434. Using a Robot to Print the Lexicographically Smallest String</a></h2><h3>Medium</h3><hr><div class="_1l1MA"><p>You are given the <code>head</code> of a linked list.</p>
+<h2><a href="https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/">2434. Using a Robot to Print the Lexicographically Smallest String</a></h2><h3>Medium</h3><hr><div class="_1l1MA"><p>You are given a string <code>s</code> and a robot that currently holds an empty string <code>t</code>. Apply one of the following operations until <code>s</code> and <code>t</code> <strong>are both empty</strong>:</p>
 
-<p>Remove every node which has a node with a <strong>strictly greater</strong> value anywhere to the right side of it.</p>
+<ul>
+	<li>Remove the <strong>first</strong> character of a string <code>s</code> and give it to the robot. The robot will append this character to the string <code>t</code>.</li>
+	<li>Remove the <strong>last</strong> character of a string <code>t</code> and give it to the robot. The robot will write this character on paper.</li>
+</ul>
 
-<p>Return <em>the </em><code>head</code><em> of the modified linked list.</em></p>
+<p>Return <em>the lexicographically smallest string that can be written on the paper.</em></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2022/10/02/drawio.png" style="width: 631px; height: 51px;">
-<pre><strong>Input:</strong> head = [5,2,13,3,8]
-<strong>Output:</strong> [13,8]
-<strong>Explanation:</strong> The nodes that should be removed are 5, 2 and 3.
-- Node 13 is to the right of node 5.
-- Node 13 is to the right of node 2.
-- Node 8 is to the right of node 3.
+
+<pre><strong>Input:</strong> s = "zza"
+<strong>Output:</strong> "azz"
+<strong>Explanation:</strong> Let p denote the written string.
+Initially p="", s="zza", t="".
+Perform first operation three times p="", s="", t="zza".
+Perform second operation three times p="azz", s="", t="".
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> head = [1,1,1,1]
-<strong>Output:</strong> [1,1,1,1]
-<strong>Explanation:</strong> Every node has value 1, so no nodes are removed.
+<pre><strong>Input:</strong> s = "bac"
+<strong>Output:</strong> "abc"
+<strong>Explanation:</strong> Let p denote the written string.
+Perform first operation twice p="", s="c", t="ba". 
+Perform second operation twice p="ab", s="c", t="". 
+Perform first operation p="ab", s="", t="c". 
+Perform second operation p="abc", s="", t="".
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre><strong>Input:</strong> s = "bdda"
+<strong>Output:</strong> "addb"
+<strong>Explanation:</strong> Let p denote the written string.
+Initially p="", s="bdda", t="".
+Perform first operation four times p="", s="", t="bdda".
+Perform second operation four times p="addb", s="", t="".
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of the nodes in the given list is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
-	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
 </div>
