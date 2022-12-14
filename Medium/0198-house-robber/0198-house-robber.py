@@ -1,13 +1,17 @@
 class Solution:
-    def frequencySort(self, s: str) -> str:
-        c1, c2 = collections.Counter(s), {}
-        ans = []
+    def rob(self, nums: List[int]) -> int:
+        count = len(nums)
+        if count == 0:
+            return 0
+        elif count == 1:
+            return nums[0]
+        elif count == 2: 
+            return max(nums[0], nums[1])
         
-        for k, v in c1.items():
-            c2.setdefault(v, []).append(k * v)
+        memo = nums[:] # copy
+        memo[1] = max(nums[0], nums[1])
         
-        for i in range(len(s), -1, -1):
-            if i in c2:
-                ans.append("".join(c2[i]))
+        for i in range(2, count):
+            memo[i] = max(memo[i-1], nums[i] + memo[i-2]) 
         
-        return "".join(ans)
+        return memo[count-1]
