@@ -30,14 +30,3 @@
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
 </div>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= sum(nums[i]) &lt;= 2<sup>31</sup> - 1</code></li>
-	<li><code>1 &lt;= k &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
-</div>
