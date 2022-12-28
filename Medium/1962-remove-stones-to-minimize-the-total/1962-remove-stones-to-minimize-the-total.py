@@ -3,6 +3,6 @@ class Solution:
         pq = [-x for x in piles]
         heapify(pq)
         for _ in range(k): 
-            heapreplace(pq, pq[0]//2)
+            heapreplace(pq, pq[0] // 2)
         
         return -sum(pq)
