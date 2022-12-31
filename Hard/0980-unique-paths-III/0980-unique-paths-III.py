@@ -1,27 +1,40 @@
+import sys  
+sys.setrecursionlimit(1000000)
+
 class Solution:
-    def sumOfDistancesInTree(self, N: int, edges: List[List[int]]) -> List[int]:
-        graph = collections.defaultdict(list)
-        for i, j in edges:
-            graph[i].append(j)
-            graph[j].append(i)
-						
-        size, up, down = [1] * N, [0] * N, [0] * N
+    def uniquePathsIII(self, grid: List[List[int]]) -> int:
+        n,m = len(grid), len(grid[0])
+        start = 0
+        final = 0
+        fi = fj = 0
         
-        def post(parent, i): 
-            for kid in graph[i]:
-                if kid != parent:
-                    post(i, kid)
-                    size[i] += size[kid]
-                    up[i] += up[kid] + size[kid] 
-                    
-        def pre(parent, i):
-            if parent != -1:
-                down[i] = down[parent] + (up[parent] - up[i] - size[i]) + (N-size[i])
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] != -1:
+                    final += 1 << (i*m+j)
+                
+                if grid[i][j] == 1:
+                    start += 1 << (i*m+j)
+                    si, sj = i, j
+                
+                if grid[i][j] == 2:
+                    fi, fj = i, j
+
+        cache = {(start,si,sj): 1}
+    
+        def solve(status, i, j):
+            if (status,i,j) in cache: 
+                return cache[status,i,j]
             
-            for kid in graph[i]:     
-                if kid != parent:
-                    pre(i, kid)
-                    
-        post(-1, 0)            
-        pre(-1, 0)            
-        return [up[i]+down[i] for i in range(N)] 
+            res = 0
+            now_status = 1 << (i*m + j)
+            for x,y in [(i+1,j), (i-1,j), (i,j+1), (i,j-1)]:
+                if 0<=x<n and 0<=y<m and grid[x][y] != -1:
+                    mask = 1 << (x*m+y)
+                    if status & mask:
+                        res += solve(status ^ now_status, x, y)
+            
+            cache[status,i,j] = res
+            return res
+        
+        return solve(final, fi, fj)
