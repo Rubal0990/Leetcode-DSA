@@ -6,7 +6,7 @@ class Solution:
         
         for s, e in intervals:
             if stack and stack[-1][1] >= s:
-                lastS,lastE = stack.pop()
+                lastS, lastE = stack.pop()
                 stack.append([lastS, max(lastE, e)])
             else:
                 stack.append([s, e])
