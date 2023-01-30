@@ -1,6 +1,6 @@
 class Solution:
     def tribonacci(self, n: int) -> int:
-        Tn = (0, 1, 1,  2, 4, 7)
+        Tn = (0, 1, 1, 2, 4, 7)
         if n < 6:
             return Tn[n]
 
