@@ -1,7 +1,8 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         hm, res, pL, sL = defaultdict(int), [], len(p), len(s)
-        if pL > sL: return []
+        if pL > sL: 
+            return []
         
         for ch in p: 
             hm[ch] += 1
