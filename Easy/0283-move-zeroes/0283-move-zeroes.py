@@ -1,15 +1,16 @@
 class Solution:
-    def minCostToMoveChips(self, position: List[int]) -> int:
-        oddCount = 0
-        evenCount = 0
-        
-        for i in position:    
-            if i%2 != 0:
-                oddCount += 1
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        a = 0
+
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                continue
             else:
-                evenCount += 1
-                
-        if oddCount == len(position) or evenCount == len(position):
-            return 0
-        else:
-            return min(evenCount, oddCount)
+                nums[i], nums[a] = nums[a], nums[i]
+                a += 1
+        
+        return nums
+            
