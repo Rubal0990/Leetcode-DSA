@@ -1,9 +1,10 @@
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
         result, n = [], len(nums)
-        if n == 0: return result
-        a = nums[0]
+        if n == 0: 
+            return result
         
+        a = nums[0]
         for i in range(n):
             if i == n-1 or nums[i]+1 != nums[i+1]:
                 if nums[i] != a: 
